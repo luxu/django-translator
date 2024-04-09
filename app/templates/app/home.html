@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Textarea 8 rows height -->
+<div class="container-sm">
+    <div class="text-center d-inline-block my-5">
+        <form method="post">
+            {% csrf_token %}
+            <div class="d-flex align-items-start bg-light mb-1" style="height: 80px;">
+                <div class="col">
+                    <select class="form-select d-inline" required name="fromlanguage">
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                    <option value="de">German</option>
+                    <option value="it">Italian</option>
+                    <option value="en" selected>English</option>
+                    <option value="zh">Chinese</option>
+                    <option value="ig">Igbo</option>
+                    <option value="yo">Yoruba</option>
+                    <option value="hi">Hindi</option>
+                    <option value="pt">Portuguese</option>
+                </select>
+                </div>
+                <div class="col">
+                    <span class="d-inline"><i class="fas fa-language fa-2x"></i></span>
+                </div>
+                <div class="col">
+                    <select class="form-select d-inline" required name="tolanguage">
+                    <option value="fr">French</option>
+                    <option value="es">Spanish</option>
+                    <option value="de">German</option>
+                    <option value="it">Italian</option>
+                    <option value="en">English</option>
+                    <option value="zh">Chinese</option>
+                    <option value="ig">Igbo</option>
+                    <option value="yo">Yoruba</option>
+                    <option value="hi">Hindi</option>
+                    <option value="pt" selected>Portuguese</option>
+                </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label" for="textAreaExample2">Digite o texto</label>
+                    <textarea onChange="" id="translate" name="translate" class="form-control" rows="8"></textarea>
+                </div>
+                <div class="col">
+                    <label class="form-label" for="textAreaExample2">Tradução</label>
+                    <textarea style="background-color: #ffffff;" id="formControlReadonly" class="form-control" rows="8"
+                              readonly>{% if translation %}{{translation}}{% endif %}</textarea>
+                </div>
+            </div>
+            <div class="d-flex align-items-start bg-light mb-3" style="height: 100px;">
+                <button id="btn" type="submit" class="btn btn-dark mt-3">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content%}
